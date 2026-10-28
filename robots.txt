@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sole-residence.traviskenlocean1.workers.dev/sitemap.xml

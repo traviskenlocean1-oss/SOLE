@@ -1,0 +1,15 @@
+<svg width="1072" height="208" viewBox="0 0 1072 208" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="56" cy="152" r="3" fill="#1C2620"/><text x="56" y="122" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.6" fill="#1C2620">KEY BISCAYNE</text><text x="56" y="134" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" letter-spacing="0.6" fill="#1C2620">20 MIN</text><circle cx="211" cy="104" r="3" fill="#1C2620"/><text x="211" y="74" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.6" fill="#1C2620">CORAL GABLES</text><text x="211" y="86" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" letter-spacing="0.6" fill="#1C2620">10 MIN</text><circle cx="365" cy="116" r="3" fill="#1C2620"/><text x="365" y="86" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.6" fill="#1C2620">BRICKELL</text><text x="365" y="98" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" letter-spacing="0.6" fill="#1C2620">10 MIN</text><circle cx="536" cy="114" r="3" fill="#1C2620"/><g transform="translate(522 70) scale(0.7)">
+  <g fill="#1C2620">
+    <circle cx="20" cy="20" r="3.2"/>
+    <g id="ray"><path d="M20 0C22.6 4.6 22.9 9.6 20 14.6C17.1 9.6 17.4 4.6 20 0Z"/></g>
+    <use href="#ray" transform="rotate(90 20 20)"/>
+    <use href="#ray" transform="rotate(180 20 20)"/>
+    <use href="#ray" transform="rotate(270 20 20)"/>
+    <g id="leaf"><path d="M20 6.4C21.5 9 21.6 11.6 20 14.2C18.4 11.6 18.5 9 20 6.4Z"/></g>
+    <use href="#leaf" transform="rotate(45 20 20)"/>
+    <use href="#leaf" transform="rotate(135 20 20)"/>
+    <use href="#leaf" transform="rotate(225 20 20)"/>
+    <use href="#leaf" transform="rotate(315 20 20)"/>
+  </g>
+
+</g><circle cx="709" cy="106" r="3" fill="#1C2620"/><text x="709" y="76" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.6" fill="#1C2620">DOWNTOWN</text><text x="709" y="88" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" letter-spacing="0.6" fill="#1C2620">15 MIN</text><circle cx="855" cy="97" r="3" fill="#1C2620"/><text x="855" y="67" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.6" fill="#1C2620">MIAMI BEACH</text><text x="855" y="79" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" letter-spacing="0.6" fill="#1C2620">25 MIN</text><circle cx="1007" cy="117" r="3" fill="#1C2620"/><text x="1007" y="87" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="9.5" letter-spacing="0.6" fill="#1C2620">MIAMI AIRPORT</text><text x="1007" y="99" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="9" letter-spacing="0.6" fill="#1C2620">20 MIN</text></svg>
