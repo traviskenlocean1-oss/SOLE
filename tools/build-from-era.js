@@ -65,13 +65,13 @@ const MEDIA = [
   ['6a150bbc2a39862be04f2cd5_era-residence-terrace', 'bedroom.jpg'],
   ['6a15723f346e4b3a6c0af26a_era-residence-terrace', 'dining.jpg'],
   ['era-residence-landscaping', 'landscaping.jpg'],
-  ['bougainvillea-flowers_01', 'flower-1.webp'],
-  ['bougainvillea-flowers_02', 'flower-2.webp'],
-  ['bougainvillea-flowers_03', 'flower-3.webp'],
-  ['bougainvillea-flowers_04', 'flower-4.webp'],
-  ['bougainvillea-flowers_05', 'flower-1.webp'],
-  ['bougainvillea-flowers_06', 'flower-2.webp'],
-  ['bougainvillea-flowers_07', 'flower-3.webp'],
+  ['bougainvillea-flowers_01', 'bloom-1.webp'],
+  ['bougainvillea-flowers_02', 'bloom-2.webp'],
+  ['bougainvillea-flowers_03', 'bloom-3.webp'],
+  ['bougainvillea-flowers_04', 'bloom-4.webp'],
+  ['bougainvillea-flowers_05', 'bloom-5.webp'],
+  ['bougainvillea-flowers_06', 'bloom-6.webp'],
+  ['bougainvillea-flowers_07', 'bloom-7.webp'],
   ['fav_512x512', '../brand/favicon-512.png'],
   ['preloader_arch-l', '../svg/preloader-arch-l.svg'],
   ['preloader_bg', 'preloader-script.png'],
@@ -86,7 +86,7 @@ const mapUrl = url => {
 // srcset/sizes only point at ERA's resized copies
 html = html.replace(/\s(srcset|sizes)="[^"]*"/g, '');
 // flower videos: our own 10s VP9-alpha sway loops (tools/sway). No HEVC-alpha .mov for Safari, which falls back to the poster.
-const FLOWER_VIDEO = n => `assets/video/flower-${((+n - 1) % 4) + 1}.webm`;
+const FLOWER_VIDEO = n => `assets/video/bloom-${+n}.webm`;
 html = html.replace(/<source src="https:\/\/assets\.era-residence\.com\/flowers\/bougainvillea-flowers_(\d+)\.webm"[^>]*>/g, (m, n) => `<source src="${FLOWER_VIDEO(n)}" type="video/webm"/>`);
 html = html.replace(/<source[^>]*assets\.era-residence\.com\/flowers[^>]*\.mov"[^>]*>/g, '');
 html = html.replace(/(src|poster|href|content|data-src)="(https:\/\/(?:cdn\.prod\.website-files\.com|assets\.era-residence\.com)\/[^"]+)"/g, (m, attr, url) => {
