@@ -10,7 +10,7 @@ const read = f => fs.readFileSync(path.join(SRC, f), 'utf8');
 // ---------- colors ----------
 const COLORS = [
   ['#340c24', '#1f3328'], // plum "on-color" sections -> banyan green
-  ['#b5cedb', '#a7c4e2'], // sky blue brand -> pale Miami sky (the cut-out house photos sit on it)
+  ['#b5cedb', '#95bef1'], // sky blue brand -> pale Miami sky (the cut-out house photos sit on it)
   ['#17233b', '#1c2620'], // navy ink -> green-black ink
   ['#f3f3ec', '#f6f1e6'], // cream
   ['#758696', '#7b8478'],
