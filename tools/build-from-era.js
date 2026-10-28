@@ -10,7 +10,7 @@ const read = f => fs.readFileSync(path.join(SRC, f), 'utf8');
 // ---------- colors ----------
 const COLORS = [
   ['#340c24', '#1f3328'], // plum "on-color" sections -> banyan green
-  ['#b5cedb', '#ecd5bb'], // sky blue brand -> warm apricot sand
+  ['#b5cedb', '#a7c4e2'], // sky blue brand -> pale Miami sky (the cut-out house photos sit on it)
   ['#17233b', '#1c2620'], // navy ink -> green-black ink
   ['#f3f3ec', '#f6f1e6'], // cream
   ['#758696', '#7b8478'],
@@ -43,7 +43,7 @@ const IMG = 'assets/img/';
 const MEDIA = [
   ['gated-community_day', 'hero-day.jpg'],
   ['gated-community_night', 'hero-night.jpg'],
-  ['img_cam_05_alpha', 'palms.jpg'],
+  ['img_cam_05_alpha', 'quote-house.webp'],
   ['img_cam_02', 'loc-1.jpg'],
   ['img_cam_03', 'loc-2.jpg'],
   ['img_cam_07', 'loc-3.jpg'],
@@ -85,8 +85,10 @@ const mapUrl = url => {
 };
 // srcset/sizes only point at ERA's resized copies
 html = html.replace(/\s(srcset|sizes)="[^"]*"/g, '');
-// flower videos: keep the <video> element (their scroll code plays/pauses it) but show our still cut-out as the poster
-html = html.replace(/<source[^>]*assets\.era-residence\.com\/flowers[^>]*>/g, '');
+// flower videos: our own 10s VP9-alpha sway loops (tools/sway). No HEVC-alpha .mov for Safari, which falls back to the poster.
+const FLOWER_VIDEO = n => `assets/video/flower-${((+n - 1) % 4) + 1}.webm`;
+html = html.replace(/<source src="https:\/\/assets\.era-residence\.com\/flowers\/bougainvillea-flowers_(\d+)\.webm"[^>]*>/g, (m, n) => `<source src="${FLOWER_VIDEO(n)}" type="video/webm"/>`);
+html = html.replace(/<source[^>]*assets\.era-residence\.com\/flowers[^>]*\.mov"[^>]*>/g, '');
 html = html.replace(/(src|poster|href|content|data-src)="(https:\/\/(?:cdn\.prod\.website-files\.com|assets\.era-residence\.com)\/[^"]+)"/g, (m, attr, url) => {
   if (/webflow\.[a-z0-9.]+\.js/.test(url)) return `${attr}="assets/js/webflow.js"`;
   if (/webflow\.shared\.[a-z0-9]+\.min\.css/.test(url)) return `${attr}="assets/css/era.css"`;
