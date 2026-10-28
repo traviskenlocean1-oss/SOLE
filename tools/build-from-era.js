@@ -147,6 +147,7 @@ const HEAD = fs.readFileSync(path.join(__dirname, 'sole-head.html'), 'utf8');
 html = html.replace(/<head>[\s\S]*?<link href="[^"]*era\.css"[^>]*>/, `<head>${HEAD}<link href="assets/css/era.css" rel="stylesheet" type="text/css"/>`);
 html = html.replace(/<\/head>/, '<link href="assets/css/sole.css" rel="stylesheet" type="text/css"/></head>');
 html = html.replace(/data-wf-domain="[^"]*"/, '').replace(/<html /, '<html lang="en" ');
+html = html.replace(/<!-- Last Published:[^>]*-->/, '');
 html = recolor(html);
 
 fs.writeFileSync(path.join(ROOT, 'index.html'), html);
