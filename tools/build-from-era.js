@@ -1,6 +1,6 @@
 // Builds SOLE's index.html, era.css and main.js from ERA's real source (tools/era-src).
 // Structure, classes and animation code stay theirs; text, media, logo, colors and fonts become SOLE's.
-// Run: node tools/build-from-era.js
+// Run: node tools/build-from-era.js   (builds every page listed in PAGES at the bottom)
 const fs = require('fs');
 const path = require('path');
 const ROOT = path.join(__dirname, '..');
@@ -33,13 +33,16 @@ fs.writeFileSync(path.join(ROOT, 'assets/css/era.css'), css);
 // ---------- js ----------
 let js = read('main.js');
 js = js.replace('"Deal from Era"', '"Deal from SOLE"');
+// Travis: scroll a bit quicker than ERA so visitors reach the content sooner (ERA: 1x per notch, 1.2s ease)
+js = js.replace('lenis=new Lenis({wrapper:window,duration:1.2,', 'lenis=new Lenis({wrapper:window,duration:1,wheelMultiplier:1.35,');
 fs.writeFileSync(path.join(ROOT, 'assets/js/main.js'), js);
 
 // ---------- html ----------
-let html = read('index.html');
+function buildPage({ src, out, title, desc, canonical }) {
+let html = read(src);
 
 // media: map ERA files (by name fragment) to SOLE photos
-const IMG = 'assets/img/';
+const IMG = '/assets/img/';
 const MEDIA = [
   ['gated-community_day', 'hero-day.jpg'],
   ['gated-community_night', 'hero-night.jpg'],
@@ -78,6 +81,7 @@ const MEDIA = [
   ['loc_path_labels', '../svg/loc-path-labels.svg'],
   ['loc_path', '../svg/loc-path.svg'],
   ['landscape.svg', '../brand/sole-symbol.svg'],
+  ['map_sales-office', '../svg/map-sales-office.svg'],
 ];
 const mapUrl = url => {
   const hit = MEDIA.find(([k]) => url.includes(k));
@@ -86,12 +90,12 @@ const mapUrl = url => {
 // srcset/sizes only point at ERA's resized copies
 html = html.replace(/\s(srcset|sizes)="[^"]*"/g, '');
 // flower videos: our own 10s VP9-alpha sway loops (tools/sway). No HEVC-alpha .mov for Safari, which falls back to the poster.
-const FLOWER_VIDEO = n => `assets/video/bloom-${+n}.webm`;
+const FLOWER_VIDEO = n => `/assets/video/bloom-${+n}.webm`;
 html = html.replace(/<source src="https:\/\/assets\.era-residence\.com\/flowers\/bougainvillea-flowers_(\d+)\.webm"[^>]*>/g, (m, n) => `<source src="${FLOWER_VIDEO(n)}" type="video/webm"/>`);
 html = html.replace(/<source[^>]*assets\.era-residence\.com\/flowers[^>]*\.mov"[^>]*>/g, '');
 html = html.replace(/(src|poster|href|content|data-src)="(https:\/\/(?:cdn\.prod\.website-files\.com|assets\.era-residence\.com)\/[^"]+)"/g, (m, attr, url) => {
-  if (/webflow\.[a-z0-9.]+\.js/.test(url)) return `${attr}="assets/js/webflow.js"`;
-  if (/webflow\.shared\.[a-z0-9]+\.min\.css/.test(url)) return `${attr}="assets/css/era.css"`;
+  if (/webflow\.[a-z0-9.]+\.js/.test(url)) return `${attr}="/assets/js/webflow.js"`;
+  if (/webflow\.shared\.[a-z0-9]+\.min\.css/.test(url)) return `${attr}="/assets/css/era.css"`;
   const local = mapUrl(url);
   return local ? `${attr}="${local}"` : m;
 });
@@ -99,13 +103,17 @@ html = html.replace(/(src|poster|href|content|data-src)="(https:\/\/(?:cdn\.prod
 // inline-style background urls (preloader arch) use url('...')
 html = html.replace(/url\('(https:\/\/cdn\.prod\.website-files\.com\/[^']+)'\)/g, (m, url) => { const l = mapUrl(url); return l ? `url('${l}')` : m; });
 // partner logo image -> the name already shows as text
-html = html.replace(/(<img[^>]*src=")[^"]*Unreal%20logo\.svg("[^>]*>)/g, '$1assets/svg/grove-house-logo.svg$2');
+html = html.replace(/(<img[^>]*src=")[^"]*Unreal%20logo\.svg("[^>]*>)/g, '$1/assets/svg/grove-house-logo.svg$2');
 // contact + legal + socials
 html = html.replace(/href="tel:\+34655408648"/g, 'href="tel:+13055550187"');
 html = html.replace(/href="https:\/\/maps\.app\.goo\.gl\/[^"]*"/g, 'href="https://maps.google.com/?q=South+Bayshore+Drive+Coconut+Grove+Miami+FL"');
 html = html.replace(/aria-label="Avenida Litoral, 29680 Estepona, Málaga, Spain"/g, 'aria-label="South Bayshore Drive, Coconut Grove, Miami, FL 33133"');
 html = html.replace(/href="https:\/\/cdn\.prod\.website-files\.com\/[^"]+\.pdf"/g, 'href="#"');
 html = html.replace(/href="https:\/\/www\.(linkedin|facebook|instagram)\.com\/[^"]*"/g, 'href="#"');
+html = html.replace(/info@era-residence\.com/g, 'hello@soleresidence.com');
+html = html.replace(/https:\/\/(wa\.me|api\.whatsapp\.com|whatsapp\.com)\/[^"]*/g, 'https://wa.me/13055550187');
+html = html.replace(/aria-label="New Golden Mile, Estepona Costa del Sol, Spain"/g, 'aria-label="South Bayshore Drive, Coconut Grove, Miami, Florida"');
+html = html.replace(/aria-label="\+34 \(655\) 408-648"/g, 'aria-label="(305) 555-0187"');
 
 // text: exact visible strings -> SOLE copy
 const TEXT = JSON.parse(fs.readFileSync(path.join(__dirname, 'sole-text.json'), 'utf8'));
@@ -129,7 +137,7 @@ html = html.replace(/<script src="https:\/\/use\.typekit\.net[^>]*><\/script>\s*
 html = html.replace(/<script>\s*\(function\(w,d,s,l,i\)[\s\S]*?<\/script>/, '');
 html = html.replace(/<noscript><iframe[^>]*googletagmanager[\s\S]*?<\/noscript>/g, '');
 html = html.replace(/<script>\s*console\.log\([\s\S]*?<\/script>/, '');
-html = html.replace(/<script>\s*document\.addEventListener\('DOMContentLoaded', function \(\) \{\s*function loadtwc[\s\S]*?<\/script>/, '<script src="assets/js/main.js"></script>');
+html = html.replace(/<script>\s*document\.addEventListener\('DOMContentLoaded', function \(\) \{\s*function loadtwc[\s\S]*?<\/script>/, '<script src="/assets/js/main.js"></script>');
 html = html.replace(/<script src="https:\/\/unpkg\.com\/@barba\/core"><\/script>/, '<script src="https://unpkg.com/@barba/core@2.10.3/dist/barba.umd.js"></script>');
 html = html.replace(/\s*integrity="[^"]*"/g, '');
 
@@ -145,13 +153,24 @@ html = html.replace(/<div data-json="[^"]*" class="credits_logo"><\/div>/g, '');
 html = html.replace(/aria-label="Thefirstthelast"/g, 'aria-label="Visionary Web Studio"');
 
 // head: SOLE's own SEO layer + fonts
-const HEAD = fs.readFileSync(path.join(__dirname, 'sole-head.html'), 'utf8');
-html = html.replace(/<head>[\s\S]*?<link href="[^"]*era\.css"[^>]*>/, `<head>${HEAD}<link href="assets/css/era.css" rel="stylesheet" type="text/css"/>`);
-html = html.replace(/<\/head>/, '<link href="assets/css/sole.css" rel="stylesheet" type="text/css"/></head>');
+let HEAD = fs.readFileSync(path.join(__dirname, 'sole-head.html'), 'utf8').replace(/(href|content)="assets\//g, '$1="/assets/');
+if (title) HEAD = HEAD.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`).replace(/content="SOLE Residence — Boutique Residences in Coconut Grove, Miami"/g, `content="${title}"`);
+if (desc) HEAD = HEAD.replace(/<meta content="[^"]*" name="description"\/>/, `<meta content="${desc}" name="description"/>`);
+if (canonical) HEAD = HEAD.replace(/(rel="canonical" href="[^"]*workers\.dev\/|property="og:url" content="[^"]*workers\.dev\/)"/g, `$1${canonical}"`);
+html = html.replace(/<head>[\s\S]*?<link href="[^"]*era\.css"[^>]*>/, `<head>${HEAD}<link href="/assets/css/era.css" rel="stylesheet" type="text/css"/>`);
+html = html.replace(/<\/head>/, '<link href="/assets/css/sole.css" rel="stylesheet" type="text/css"/></head>');
 html = html.replace(/data-wf-domain="[^"]*"/, '').replace(/<html /, '<html lang="en" ');
 html = html.replace(/<!-- Last Published:[^>]*-->/, '');
 html = recolor(html);
 
-fs.writeFileSync(path.join(ROOT, 'index.html'), html);
-const left = (html.match(/website-files\.com|era-residence\.com|Estepona|Marbella/gi) || []);
-console.log('index.html written,', html.length, 'bytes; leftover ERA refs:', left.length);
+fs.mkdirSync(path.dirname(path.join(ROOT, out)), { recursive: true });
+fs.writeFileSync(path.join(ROOT, out), html);
+const left = html.match(/website-files\.com|era-residence\.com|Estepona|Marbella|Málaga|Spain|\+34/gi) || [];
+console.log(out, 'written,', html.length, 'bytes; leftover ERA refs:', left.length, [...new Set(left)].join(', '));
+}
+
+const PAGES = [
+  { src: 'index.html', out: 'index.html' },
+  { src: 'contact.html', out: 'contact.html', title: 'Contact — SOLE Residence, Coconut Grove', desc: 'Visit the SOLE Residence sales office on South Bayshore Drive, Coconut Grove, or book a call with our team.', canonical: 'contact' },
+];
+for (const p of PAGES) buildPage(p);
