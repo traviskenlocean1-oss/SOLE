@@ -1,0 +1,252 @@
+{
+ "111": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=75 m²",
+   "Terrace=29 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-165",
+  "blk": "1"
+ },
+ "112": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=75 m²",
+   "Terrace=29 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-165",
+  "blk": "1"
+ },
+ "113": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=75 m²",
+   "Terrace=29 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-165",
+  "blk": "1"
+ },
+ "114": {
+  "specs": [
+   "Bedrooms=3",
+   "Interior area=89 m²",
+   "Terrace=151 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-165",
+  "blk": "1"
+ },
+ "121": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=75 m²",
+   "Terrace=29 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-150",
+  "blk": "2"
+ },
+ "122": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=75 m²",
+   "Terrace=29 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-150",
+  "blk": "2"
+ },
+ "123": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=75 m²",
+   "Terrace=29 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-150",
+  "blk": "2"
+ },
+ "124": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=75 m²",
+   "Terrace=29 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-150",
+  "blk": "2"
+ },
+ "131": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=60 m²",
+   "Terrace=64 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-135",
+  "blk": "3"
+ },
+ "132": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=60 m²",
+   "Terrace=64 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-135",
+  "blk": "3"
+ },
+ "133": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=60 m²",
+   "Terrace=64 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-135",
+  "blk": "3"
+ },
+ "134": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=67 m²",
+   "Terrace=71 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-135",
+  "blk": "3"
+ },
+ "211": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=60 m²",
+   "Terrace=61 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-165",
+  "blk": "1"
+ },
+ "212": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=60 m²",
+   "Terrace=61 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-165",
+  "blk": "1"
+ },
+ "213": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=60 m²",
+   "Terrace=62 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-165",
+  "blk": "1"
+ },
+ "221": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=60 m²",
+   "Terrace=61 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-150",
+  "blk": "2"
+ },
+ "222": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=60 m²",
+   "Terrace=61 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-150",
+  "blk": "2"
+ },
+ "223": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=60 m²",
+   "Terrace=61 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-150",
+  "blk": "2"
+ },
+ "224": {
+  "specs": [
+   "Bedrooms=2",
+   "Interior area=60 m²",
+   "Terrace=62 M²",
+   "Garden=- M²"
+  ],
+  "rot": "-150",
+  "blk": "2"
+ },
+ "011": {
+  "specs": [
+   "Bedrooms=3",
+   "Interior area=132 m²",
+   "Terrace=29 M²",
+   "Garden=46 M²"
+  ],
+  "rot": "-165",
+  "blk": "1"
+ },
+ "012": {
+  "specs": [
+   "Bedrooms=3",
+   "Interior area=132 m²",
+   "Terrace=29 M²",
+   "Garden=33 M²"
+  ],
+  "rot": "-165",
+  "blk": "1"
+ },
+ "031": {
+  "specs": [
+   "Bedrooms=3",
+   "Interior area=134 m²",
+   "Terrace=44 M²",
+   "Garden=21 M²"
+  ],
+  "rot": "-135",
+  "blk": "3"
+ },
+ "032": {
+  "specs": [
+   "Bedrooms=3",
+   "Interior area=134 m²",
+   "Terrace=44 M²",
+   "Garden=21 M²"
+  ],
+  "rot": "-135",
+  "blk": "3"
+ },
+ "033": {
+  "specs": [
+   "Bedrooms=3",
+   "Interior area=134 m²",
+   "Terrace=44 M²",
+   "Garden=21 M²"
+  ],
+  "rot": "-135",
+  "blk": "3"
+ },
+ "034": {
+  "specs": [
+   "Bedrooms=3",
+   "Interior area=134 m²",
+   "Terrace=45 M²",
+   "Garden=21 M²"
+  ],
+  "rot": "-135",
+  "blk": "3"
+ }
+}

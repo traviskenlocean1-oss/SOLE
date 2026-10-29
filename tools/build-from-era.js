@@ -38,8 +38,40 @@ js = js.replace('lenis=new Lenis({wrapper:window,duration:1.2,', 'lenis=new Leni
 fs.writeFileSync(path.join(ROOT, 'assets/js/main.js'), js);
 
 // ---------- html ----------
+const UNITS = JSON.parse(fs.readFileSync(path.join(__dirname, 'units.json'), 'utf8'));
+const unitByNo = Object.fromEntries(UNITS.map(u => [u.no, u]));
+const fmt = n => n.toLocaleString('en-US');
+// apartment cards (list page + "similar options"): plan drawing, sq ft, US floor numbering
+function rewriteCards(html) {
+  return html.replace(/<a [^>]*href="\/apartments\/(\d+)"[^>]*class="apart-card[\s\S]*?<\/a>/g, (card, no) => {
+    const u = unitByNo[no]; if (!u) return card;
+    return card
+      .replace(/<img src="[^"]*_\d+(?:_1)?\.webp"/, `<img src="/assets/plans/unit-${no}.svg"`)
+      .replace(/<span>4Q 2026<\/span>/g, '<span>Q4 2027</span>')
+      .replace(/<span>\d+<\/span><span>(\s|&nbsp;)floor<\/span>/, (m, sp) => `<span>${u.floor + 1}</span><span>${sp}floor</span>`)
+      .replace(/data-sort-area="[^"]*"/, `data-sort-area="${u.sqft} sq ft"`)
+      .replace(/<span>\d+ m²<\/span>/, `<span>${fmt(u.sqft)} sq ft</span>`)
+      .replace(/<span>\d+ M²<\/span>/, `<span>${fmt(u.terraceSqft)} SQ FT</span>`);
+  });
+}
+
 function buildPage({ src, out, title, desc, canonical }) {
-let html = read(src);
+let html = rewriteCards(read(src));
+// any remaining ERA plan image (unit page hero plan) -> our drawing for that unit number
+html = html.replace(/https:\/\/cdn\.prod\.website-files\.com\/[a-z0-9]+\/[a-z0-9]+_[a-z0-9]+_(\d{2,3})(?:_\d)?\.webp/g, (m, n) => `/assets/plans/unit-${n.padStart(3, '0')}.svg`);
+// lightbox placeholder (swapped for the clicked image at runtime)
+html = html.replace(/https:\/\/cdn\.prod\.website-files\.com\/plugins\/Basic\/assets\/placeholder\.[a-z0-9]+\.svg/g, 'data:image/gif;base64,R0lGODlhAQABAAAAACw=');
+html = html.replace(/<span>4Q 2026<\/span>/g, '<span>Q4 2027</span>');
+// ERA's text split drops the <br/>; their wider font still wraps after "Select", ours doesn't.
+// Keep "an Apartment" unbreakable so the only wrap point is after "Select".
+html = html.replace(/>Select <br\/>an Apartment</g, '>Select <span style="white-space:nowrap">an Apartment</span><');
+// Webflow editor-only templates (URL-encoded copies of ERA's media)
+html = html.replace(/<script type="text\/x-wf-template"[\s\S]*?<\/script>/g, '');
+// unit spec values: m² -> sq ft
+const SQFT = m2 => fmt(Math.round(m2 * 10.7639 / 5) * 5);
+html = html.replace(/<h5 class="h5">(\d+) m²<\/h5>/g, (m, v) => `<h5 class="h5">${SQFT(+v)} sq ft</h5>`);
+html = html.replace(/<h5 class="h5">(\d+) M²<\/h5>/g, (m, v) => `<h5 class="h5">${SQFT(+v)} SQ FT</h5>`);
+html = html.replace(/<h5 class="h5">- M²<\/h5>/g, '<h5 class="h5">—</h5>');
 
 // media: map ERA files (by name fragment) to SOLE photos
 const IMG = '/assets/img/';
@@ -82,6 +114,15 @@ const MEDIA = [
   ['loc_path', '../svg/loc-path.svg'],
   ['landscape.svg', '../brand/sole-symbol.svg'],
   ['map_sales-office', '../svg/map-sales-office.svg'],
+  ['ground-floor-2', 'terrace.jpg'],
+  ['terrace%20view%202', 'night-pool.jpg'],
+  ['exterior%201', 'facade-1.jpg'],
+  ['diagram_block-1', '../svg/diagram-block-1.svg'],
+  ['diagram_block-2', '../svg/diagram-block-2.svg'],
+  ['diagram_block-3', '../svg/diagram-block-3.svg'],
+  ['blocks-diagram', '../svg/blocks-diagram.svg'],
+  ['era-residence-bathroom', 'bathroom.jpg'],
+  ['era-residence-ground-floor', 'living-2.jpg'],
 ];
 const mapUrl = url => {
   const hit = MEDIA.find(([k]) => url.includes(k));
@@ -172,5 +213,12 @@ console.log(out, 'written,', html.length, 'bytes; leftover ERA refs:', left.leng
 const PAGES = [
   { src: 'index.html', out: 'index.html' },
   { src: 'contact.html', out: 'contact.html', title: 'Contact — SOLE Residence, Coconut Grove', desc: 'Visit the SOLE Residence sales office on South Bayshore Drive, Coconut Grove, or book a call with our team.', canonical: 'contact' },
+  { src: 'apartments.html', out: 'apartments.html', title: 'Apartments — SOLE Residence, Coconut Grove', desc: 'Browse all 25 SOLE Residence homes in Coconut Grove: garden residences, ground floor homes and penthouse duplexes with rooftop terraces.', canonical: 'apartments' },
 ];
+const TYPE_NAME = { 'ground-floor-basement': 'Garden residence', 'ground-floor': 'Ground floor home', 'penthouse-duplex': 'Penthouse duplex' };
+for (const u of UNITS) PAGES.push({
+  src: `units/${u.no}.html`, out: `apartments/${u.no}.html`, canonical: `apartments/${u.no}`,
+  title: `No. ${u.no} — ${TYPE_NAME[u.type]} | SOLE Residence, Coconut Grove`,
+  desc: `${u.beds}-bedroom ${TYPE_NAME[u.type].toLowerCase()} at SOLE Residence, Coconut Grove: ${fmt(u.sqft)} sq ft interior with a ${fmt(u.terraceSqft)} sq ft terrace.`,
+});
 for (const p of PAGES) buildPage(p);

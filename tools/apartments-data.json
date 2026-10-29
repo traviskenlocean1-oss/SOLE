@@ -1,0 +1,177 @@
+[
+ {
+  "no": "011",
+  "type": "ground-floor-basement",
+  "label": "Ground floor + basement",
+  "spans": "Completion: |4Q 2026|№|011|Block |B1|0| floor|3| bed|132 m²|+ |29 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345dcc4aeb3252978ee66c_6a345c764aeb3252978e8751_11.webp"
+ },
+ {
+  "no": "012",
+  "type": "ground-floor-basement",
+  "label": "Ground floor + basement",
+  "spans": "Completion: |4Q 2026|№|012|Block |B1|0| floor|3| bed|132 m²|+ |29 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345dd6f7eed0819955b9b1_6a345c762f8a29dd9c9b38d7_12.webp"
+ },
+ {
+  "no": "031",
+  "type": "ground-floor-basement",
+  "label": "Ground floor + basement",
+  "spans": "Completion: |4Q 2026|№|031|Block |B3|0| floor|3| bed|134 m²|+ |44 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345de013d19bbf6d51e69a_6a345c7619f7f97bbc89d475_31.webp"
+ },
+ {
+  "no": "032",
+  "type": "ground-floor-basement",
+  "label": "Ground floor + basement",
+  "spans": "Completion: |4Q 2026|№|032|Block |B3|0| floor|3| bed|134 m²|+ |44 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345dedc369de219bae7b17_6a345c76c1fcff139914bf10_32.webp"
+ },
+ {
+  "no": "033",
+  "type": "ground-floor-basement",
+  "label": "Ground floor + basement",
+  "spans": "Completion: |4Q 2026|№|033|Block |B3|0| floor|3| bed|134 m²|+ |44 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345df71705fd78aaaff79b_6a345c7622a1a12b6817e697_33.webp"
+ },
+ {
+  "no": "034",
+  "type": "ground-floor-basement",
+  "label": "Ground floor + basement",
+  "spans": "Completion: |4Q 2026|№|034|Block |B3|0| floor|3| bed|134 m²|+ |45 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e0044b8416906f493e0_6a345c761bb0eb457f544c19_34.webp"
+ },
+ {
+  "no": "111",
+  "type": "ground-floor",
+  "label": "Ground Floor",
+  "spans": "Completion: |4Q 2026|№|111|Block |B1|1| floor|2| bed|75 m²|+ |29 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e0a1c8514388518ec54_6a345c7661bb6f90181aecf7_111.webp"
+ },
+ {
+  "no": "112",
+  "type": "ground-floor",
+  "label": "Ground Floor",
+  "spans": "Completion: |4Q 2026|№|112|Block |B1|1| floor|2| bed|75 m²|+ |29 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e117400e78c68c15016_6a345c76e6cffe217741c680_112.webp"
+ },
+ {
+  "no": "113",
+  "type": "ground-floor",
+  "label": "Ground Floor",
+  "spans": "Completion: |4Q 2026|№|113|Block |B1|1| floor|2| bed|75 m²|+ |29 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e196bdcca24333bf197_6a345c76afaf96dac2a461df_113.webp"
+ },
+ {
+  "no": "114",
+  "type": "penthouse-duplex",
+  "label": "Penthouse duplex",
+  "spans": "Completion: |4Q 2026|№|114|Block |B1|1| floor|3| bed|89 m²|+ |151 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e25b4cc4746b16f1222_6a345c7619f7f97bbc89d472_114_1.webp"
+ },
+ {
+  "no": "121",
+  "type": "ground-floor",
+  "label": "Ground Floor",
+  "spans": "Completion: |4Q 2026|№|121|Block |B2|0| floor|2| bed|75 m²|+ |29 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e3022a1a12b68187810_6a345c75afaf96dac2a4619d_121.webp"
+ },
+ {
+  "no": "122",
+  "type": "ground-floor",
+  "label": "Ground Floor",
+  "spans": "Completion: |4Q 2026|№|122|Block |B2|0| floor|2| bed|75 m²|+ |29 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e3932d3f4f169cf01e7_6a345c762f8a29dd9c9b38ab_122.webp"
+ },
+ {
+  "no": "123",
+  "type": "ground-floor",
+  "label": "Ground Floor",
+  "spans": "Completion: |4Q 2026|№|123|Block |B2|0| floor|2| bed|75 m²|+ |29 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e4a1a02c0931ef15e54_6a345c76bd54890c94c2d280_123.webp"
+ },
+ {
+  "no": "124",
+  "type": "ground-floor",
+  "label": "Ground Floor",
+  "spans": "Completion: |4Q 2026|№|124|Block |B2|0| floor|2| bed|75 m²|+ |29 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e5b8b0ac7820f95f6ff_6a345c7668c723c7c1bc2fcd_124.webp"
+ },
+ {
+  "no": "131",
+  "type": "penthouse-duplex",
+  "label": "Penthouse duplex",
+  "spans": "Completion: |4Q 2026|№|131|Block |B3|1| floor|2| bed|60 m²|+ |64 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e62bd54890c94c3ad95_6a345c76f340b7301bf20530_131.webp"
+ },
+ {
+  "no": "132",
+  "type": "penthouse-duplex",
+  "label": "Penthouse duplex",
+  "spans": "Completion: |4Q 2026|№|132|Block |B3|1| floor|2| bed|60 m²|+ |64 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e731c85143885191213_6a345c78b4cc4746b16e875d_132.webp"
+ },
+ {
+  "no": "133",
+  "type": "penthouse-duplex",
+  "label": "Penthouse duplex",
+  "spans": "Completion: |4Q 2026|№|133|Block |B3|1| floor|2| bed|60 m²|+ |64 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e7d1c85143885191444_6a345c786da993be14f64ed5_133.webp"
+ },
+ {
+  "no": "134",
+  "type": "penthouse-duplex",
+  "label": "Penthouse duplex",
+  "spans": "Completion: |4Q 2026|№|134|Block |B3|1| floor|2| bed|67 m²|+ |71 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e8777dddf106288b222_6a345c7844b8416906f3ffd8_134.webp"
+ },
+ {
+  "no": "211",
+  "type": "penthouse-duplex",
+  "label": "Penthouse duplex",
+  "spans": "Completion: |4Q 2026|№|211|Block |B1|2| floor|2| bed|60 m²|+ |61 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e91f6eb25dc22b1f05a_6a345c7827147ebfc4bc0f4b_211.webp"
+ },
+ {
+  "no": "212",
+  "type": "penthouse-duplex",
+  "label": "Penthouse duplex",
+  "spans": "Completion: |4Q 2026|№|212|Block |B1|2| floor|2| bed|60 m²|+ |61 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345e98d4cbbca7e411b626_6a345c78b492933cc245ff76_212.webp"
+ },
+ {
+  "no": "213",
+  "type": "penthouse-duplex",
+  "label": "Penthouse duplex",
+  "spans": "Completion: |4Q 2026|№|213|Block |B1|2| floor|2| bed|60 m²|+ |62 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345ea9e8b7f65792d46d07_6a345c78ac4c78a4157613a6_213.webp"
+ },
+ {
+  "no": "221",
+  "type": "penthouse-duplex",
+  "label": "Penthouse duplex",
+  "spans": "Completion: |4Q 2026|№|221|Block |B2|1| floor|2| bed|60 m²|+ |61 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345eb1bcec9ace0219ebbb_6a345c78ac4c78a4157613a3_221.webp"
+ },
+ {
+  "no": "222",
+  "type": "penthouse-duplex",
+  "label": "Penthouse duplex",
+  "spans": "Completion: |4Q 2026|№|222|Block |B2|1| floor|2| bed|60 m²|+ |61 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345ebd8f01ce67d4e9dd40_6a345c789c5162a25ad50df3_222.webp"
+ },
+ {
+  "no": "223",
+  "type": "penthouse-duplex",
+  "label": "Penthouse duplex",
+  "spans": "Completion: |4Q 2026|№|223|Block |B2|1| floor|2| bed|60 m²|+ |61 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345ec5f7eed0819956088f_6a345c788f01ce67d4e9365b_223.webp"
+ },
+ {
+  "no": "224",
+  "type": "penthouse-duplex",
+  "label": "Penthouse duplex",
+  "spans": "Completion: |4Q 2026|№|224|Block |B2|1| floor|2| bed|60 m²|+ |62 M²| |Terrace",
+  "img": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a345ecdac4c78a41576f45f_6a345c78a24587924e09d9dc_224.webp"
+ }
+]
