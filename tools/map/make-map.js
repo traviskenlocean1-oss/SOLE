@@ -69,6 +69,7 @@ ${buildings.map(b => `<path d="${b}" fill="${INK}" fill-opacity="0.1"/>`).join('
 ${roads.map(r => `<path d="${r.p}" stroke="${INK}" stroke-opacity="0.16" stroke-width="${(r.w * 0.7 + 0.8).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round"/>`).join('')}
 ${roads.map(r => `<path d="${r.p}" stroke="white" stroke-opacity="0.42" stroke-width="${(r.w * 0.7).toFixed(1)}" stroke-linecap="round" stroke-linejoin="round"/>`).join('')}
 ${labels}
+<text x="${W - 8}" y="${H - 8}" text-anchor="end" font-family="Archivo, Arial, sans-serif" font-size="6" fill="${INK}" fill-opacity="0.45">© OpenStreetMap contributors</text>
 </g></svg>`;
 const out = path.join(__dirname, '../../assets/svg/map-sales-office.svg');
 fs.writeFileSync(out, svg);
